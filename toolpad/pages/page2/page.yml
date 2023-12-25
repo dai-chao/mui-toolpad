@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mui/mui-toolpad/v0.1.42/docs/schemas/v1/definitions.json#properties/Page
+
+apiVersion: v1
+kind: page
+spec:
+  title: page2
+  display: shell
+  displayName: 为
+  content:
+    - component: Button
+      name: button
+      props:
+        content:
+          $$jsExpression: |
+            page.parameters.a
+    - component: Text
+      name: markdown
+      props:
+        mode: markdown
+        value: "text得到\r\n上午去商务区"
+    - component: DataGrid
+      name: dataGrid
+      props:
+        rowsSource: prop
+        dataProviderId: dataProvider.ts:default
+  parameters:
+    - name: a
+      value: '1'
